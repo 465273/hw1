@@ -1,0 +1,43 @@
+function setup() {
+	createCanvas(400, 400);
+}
+
+function draw() {
+	background(240);
+	frameRate(10);
+	noStroke();
+
+	
+	
+	let red = color(random(255), random(255), random(255));
+	let blue = color(0, 120, 255);
+	let yellow = color(255, 235, 0);
+
+	let leftLineX = mouseX
+	let lowerLineY = mouseY;
+	let rightLineX = 1.5*mouseX;
+	let upperShortLineY = 2*mouseY/3;
+	let lowerShortLineY = 1.2*mouseY;
+
+	fill(blue);
+	rect(0, mouseY, leftLineX, height - lowerLineY);
+
+	fill(red);
+	rect(leftLineX, 0, width - leftLineX, lowerLineY);
+
+	fill(yellow);
+	rect(rightLineX, lowerShortLineY, width - rightLineX, height - lowerShortLineY);
+
+	stroke(0);
+	strokeWeight(10);
+	strokeCap(SQUARE);
+	line(leftLineX, 0, leftLineX, height);
+	line(0, lowerLineY, width, lowerLineY);
+	line(rightLineX, lowerLineY, rightLineX, height);
+
+	strokeWeight(20);
+	line(0, upperShortLineY, leftLineX, upperShortLineY);
+
+	strokeWeight(15);
+	line(rightLineX, lowerShortLineY, width, lowerShortLineY);
+}
